@@ -43,8 +43,12 @@ nav a {
     text-decoration: none;
     font-weight: bold;
 }
+
+.center{
+    text-align: center;
+}
 .center-nav {
-    width: 865px;
+    width: 975px;
     margin: auto;
 }
 
@@ -61,12 +65,103 @@ div.button {
     box-shadow: 0px 1px 30px black;
 }
 
-table {
-    margin: auto;
-    background: white;
-    box-shadow: 0px 1px 30px black;
+.item {
+    display: inline;
+    padding: 63px;
+    position: absolute;
+    left: 0px;
 }
 
-td {
-    padding: 5px 30px;
+.edit {
+    display: inline-block;
+    padding: 63px;
+    position: absolute;
+    right: 0px;
+}
+
+.menu-item {
+    width: 90%;
+    margin: 10px auto;
+    height: 200px;
+    background: #ccc;
+    position: relative;
+}
+
+input[type="submit"] {
+    font-size: 1.5em;
+    margin: 50px;
+}
+
+form {
+    text-align: center;
+}
+
+.table-item {
+    width: 200px;
+    height: 200px;
+    background: #666;
+    box-shadow: 0px 0px 8px black;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    vertical-align: top;
+    margin: 25px;
+    float: left;
+}
+
+.table-item > .number {
+    padding: 60px;
+}
+
+.table-wrapper {
+    display: inline-block;
+    margin: 3%;
+}
+
+input[type="text"] {
+    font-size: 1.1em;
+    margin: 25px;
+    width: 90%;
+}
+
+.background {
+    background: #ccc;
+    width: 90%;
+    margin: 50px auto;
+}
+
+input.pay {
+    width: 90%;
+    background: #ccc;
+    border: none;
+    box-shadow: 0px 0px 8px black;
+    height: 200px;
+}
+
+.order-options {
+    height: 150px;
+}
+
+.order-options input[type="submit"] {
+font-size: .75em;
+margin: 28px 0px;
+width: 50%;
+height: 100px;
+position: absolute;
+background: none;
+border: none;
+}
+
+input.delete {
+    right: 4%;
+    color: rgb(192, 56, 56);
+}
+
+input.update {
+    left: 4%;
+    color: rgb(136, 136, 215);
+}
+
+.food-wrapper {
+border: 1px solid black;
 }

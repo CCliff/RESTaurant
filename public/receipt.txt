@@ -1,0 +1,7 @@
+Spaghetti   $8
+Chili   $7
+Sausage & Peppers   $10
+Hamburger   $8
+NO CHARGE   $0
+----------------------------- 
+SubTotal:          $33

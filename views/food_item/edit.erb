@@ -1,16 +1,19 @@
-<h1>Enter a change for the following food item:</h1>
+<h1>Edit <%= @food_item.name %>:</h1>
 
-<form action="/foods/<%= @food_item.id %>" method="post">
-	<input type="hidden" name="_method" value="patch">
-	
-	<label for="food_item[name]">
-		Name
-		<input type="text" name="food_item[name]" value="<%=@food_item.name%>">
-	</label>
-	<label for="food_item[price]">
-		Price
-		<input type="text" name="food_item[price]" value="<%=@food_item.price%>">
-	</label>
-	<input type="submit">
+<div class="background">
+	<form action="/foods/<%= @food_item.id %>" method="post">
+		<input type="hidden" name="_method" value="patch">
+		
+		<label for="food_item[name]">
+			Name
+			<input type="text" name="food_item[name]" value="<%=@food_item.name%>">
+		</label>
+		<label for="food_item[price]">
+			Price
+			<input type="text" name="food_item[price]" value="<%=@food_item.price%>">
+		</label>
+		<input type="submit">
 
-</form>
+	</form>
+</div>
+

@@ -1,15 +1,21 @@
 <h1>Tables</h1>
-<h2><a href="tables/new">Add a new table.</a></h2>
-
-<ul>
+<a class="button" href="tables/new"><div class="button">Add a new table.</div></a>
 	<% @tables.each do |table| %>
 		<% if table.paid == false %>
-		<li>
-			<a href="/tables/<%=table.id%>">
-				<%= table.number %>
-			</a>            
-			<a href="/tables/<%=table.id%>/edit">edit</a>
-		</li>
+			<div class="table-wrapper">
+				<a href="/tables/<%=table.id%>">
+					<div class="table-item">
+						<div class="number">
+						<%= table.number %>
+						</div>
+					</div>
+				</a>            
+				<a href="/tables/<%=table.id%>/edit">
+					<div class="center">
+						edit
+					</div>
+				</a>
+			</div>
 		<% end %>
 	<% end %>
 </ul>

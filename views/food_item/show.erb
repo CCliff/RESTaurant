@@ -1,6 +1,4 @@
-<h1>Food Item</h1>
-
-<p><%= @food_item.name %></p>
+<h1><%= @food_item.name %></h1>
 
 <form action="/foods/<%=@food_item.id %>" method="post">
 	<input type="hidden" name="_method" value="delete">
@@ -8,12 +6,15 @@
 </form>
 
 <h2>Tables that ordered this item:</h2>
-<ul>
 	<% @tables.each do |table| %>
-		<li>
+	<%if table.paid == false %>
 			<a href="/tables/<%= table.id %>">
-				<%= table.number %>
+				<div class="table-item">
+					<div class="number">
+						<%= table.number %>	
+					</div>				
+				</div>
 			</a>
-		</li>
+	<% end %>
 	<% end %>
 </ul>

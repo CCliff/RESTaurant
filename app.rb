@@ -130,7 +130,17 @@ end
 
 get '/tables/:id/receipt' do
 	@sum = 0
+	subtotal = 0
 	@food_items = Table.find(params[:id]).food_items
+	File.open('public/receipt.txt', 'w')
+	File.open('public/receipt.txt', 'a') do |f|
+		@food_items.each do |food|
+			f << food.name + "   $" + food.price.to_s + "\n"
+			subtotal += food.price
+		end
+		f << "----------------------------- \n"
+		f << "SubTotal:          $" + subtotal.to_s
+	end
 
 	erb :'/table/receipt'
 end
