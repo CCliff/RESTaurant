@@ -101,7 +101,9 @@ end
 
 get '/orders' do 
 	@orders = Order.all
+	if @orders.any?
 	@table_array = @orders.map { |order| order.table if order.table.paid == false }.uniq.compact
+	end
 	erb :'/order/orders'
 end
 
