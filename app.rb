@@ -105,6 +105,13 @@ get '/orders' do
 	erb :'/order/orders'
 end
 
+get '/orders/history' do 
+	@orders = Order.all
+	@table_array = @orders.map { |order| order.table if order.table.paid == true }.uniq.compact
+
+	erb :'/order/order_history'
+end
+
 post '/orders' do
 	@food_items = params['food_item']
 
@@ -116,7 +123,7 @@ end
 
 patch '/orders/:id' do 
 	@order = Order.find(params[:id])
-	@order.food_item.update('price' => 0)
+	@order.update('food_item_id' => 8)
 
 	redirect "/orders"
 end
@@ -142,3 +149,4 @@ delete '/orders/:id' do
 
 	redirect "/orders"
 end
+

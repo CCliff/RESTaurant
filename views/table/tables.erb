@@ -3,11 +3,13 @@
 
 <ul>
 	<% @tables.each do |table| %>
+		<% if table.paid == false %>
 		<li>
 			<a href="/tables/<%=table.id%>">
 				<%= table.number %>
 			</a>            
 			<a href="/tables/<%=table.id%>/edit">edit</a>
 		</li>
+		<% end %>
 	<% end %>
 </ul>

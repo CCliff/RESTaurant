@@ -1,6 +1,25 @@
+h1 {
+    margin: 0px;
+    text-align: center;
+    background: #343434;
+}
+
+html {
+    background-color: rgb(89, 89, 89);
+}
+
+a {
+    color: #666;
+}
+
+h2 {
+    margin: 0;
+}
+
 body {
     margin: 0px;
     font-family: sans-serif;
+    font-size: 4em;
 }
 
 ul {
@@ -11,7 +30,7 @@ ul {
 
 nav {
     background: black;
-    height: 44px;
+    height: 1.75em;
 }
 
 nav li {
@@ -23,4 +42,31 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+.center-nav {
+    width: 865px;
+    margin: auto;
+}
+
+a.button{
+    text-decoration: none;
+}
+
+div.button {
+    width: calc(90% - 90px);
+    padding: 45px;
+    background: #FFF;
+    margin: 45px auto;
+    text-align: center;
+    box-shadow: 0px 1px 30px black;
+}
+
+table {
+    margin: auto;
+    background: white;
+    box-shadow: 0px 1px 30px black;
+}
+
+td {
+    padding: 5px 30px;
 }
