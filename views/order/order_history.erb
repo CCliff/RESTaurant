@@ -1,24 +1,26 @@
 <h1>Outstanding Orders</h1>
-<% @table_array.each do |table| %>
-	<h1>Table  <%= table.number %></h1> 
-	<table>
-		<% sum = 0 %>
-		<% @orders.each do |order| %>
-			<% if order.table.id == table.id %>
-			<% sum = sum + order.food_item.price %>
-				<tr>
-					<td><%= order.food_item.name %> </td>
-					<td><%= order.food_item.price %></td>
-				</tr>
+<% unless @table_array.nil? %>
+	<% @table_array.each do |table| %>
+		<h1>Table  <%= table.number %></h1> 
+		<table>
+			<% sum = 0 %>
+			<% @orders.each do |order| %>
+				<% if order.table.id == table.id %>
+				<% sum = sum + order.food_item.price %>
+					<tr>
+						<td><%= order.food_item.name %> </td>
+						<td><%= order.food_item.price %></td>
+					</tr>
+				<% end %>
 			<% end %>
-		<% end %>
-		<tr>
-			<td>-----------------------------------------</td>
-			<td>-----------</td>
-		</tr>
-		<tr>
-			<td>SubTotal</td>
-			<td><%= sum %></td>
-		</tr>
-	</table>
+			<tr>
+				<td>-----------------------------------------</td>
+				<td>-----------</td>
+			</tr>
+			<tr>
+				<td>SubTotal</td>
+				<td><%= sum %></td>
+			</tr>
+		</table>
+	<% end %>
 <% end %>

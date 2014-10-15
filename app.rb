@@ -108,7 +108,7 @@ end
 get '/orders/history' do 
 	@orders = Order.all
 	if @orders.any?
-		@table_array = @orders.map { |order| order.table if order.table.paid == true }.uniq.compact
+		@table_array = @orders.map { |order| order.table if order.table.paid == true }.uniq.compact || []
 	end
 
 	erb :'/order/order_history'
