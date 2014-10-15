@@ -102,9 +102,9 @@ end
 get '/orders' do 
 	@orders = Order.all
 	if @orders.any?
-		@table_array = @orders.map { |order| order.table if order.table.paid == false }.uniq.compact
+		@table_array = @orders.map { |order| order.table if order.table.paid == true }.uniq.compact || []
 	end
-	binding.pry
+
 	erb :'/order/orders'
 end
 
