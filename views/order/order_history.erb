@@ -1,10 +1,10 @@
-<h1>Outstanding Orders</h1>
+<h1>Old Orders</h1>
 <% unless @table_array.nil? %>
 	<% @table_array.each do |table| %>
 		<h1>Table  <%= table.number %></h1> 
 		<table>
 			<% sum = 0 %>
-			<% @orders.each do |order| %>
+			<% @paid_orders.each do |order| %>
 				<% if order.table.id == table.id %>
 				<% sum = sum + order.food_item.price %>
 					<tr>

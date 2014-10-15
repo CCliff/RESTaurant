@@ -100,19 +100,17 @@ delete '/tables/:id' do
 end
 
 get '/orders' do 
-	@orders = Order.all
-	if @orders.any?
-		@table_array = @orders.map { |order| order.table if order.table.paid == true }.uniq.compact || []
-	end
+	@unpaid_orders = Table.paid_false.includes(:orders).flat_map { |table| table.orders } 
+
+	@table_array = @unpaid_orders.map { |order| order.table }
 
 	erb :'/order/orders'
 end
 
 get '/orders/history' do 
-	@orders = Order.all
-	if @orders.any?
-		@table_array = @orders.map { |order| order.table if order.table.paid == true }.uniq.compact || []
-	end
+	@paid_orders = Table.paid_true.includes(:orders).flat_map { |table| table.orders } 
+
+	@table_array = @paid_orders.map { |order| order.table }
 
 	erb :'/order/order_history'
 end
