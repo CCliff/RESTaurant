@@ -11,8 +11,10 @@
 		<td>-----------</td>
 	</tr>
 	<tr>
-		<td>Total bill</td>
+		<td>Sub-Total</td>
 		<td><%= @sum %></td>
 	</tr>
-
 </table>
+
+<p>Suggested Tip:</p>
+<p>15%: <%= @sum*0.15 %>  20%: <%= @sum*0.2 %> 25%: <%= @sum*0.25 %></p>

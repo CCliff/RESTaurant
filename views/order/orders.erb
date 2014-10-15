@@ -11,10 +11,6 @@
 				<li>
 					Table <%= order.table.number %> needs <%= order.food_item.name %> 
 					<form action="/orders/<%= order.id %>" method="post">
-						<input type="hidden" name="_method" value="patch">
-						<input type="submit" value="On the house">
-					</form>
-					<form action="/orders/<%= order.id %>" method="post">
 						<input type="hidden" name="_method" value="delete">
 						<input type="submit" value="DELETE">
 					</form>

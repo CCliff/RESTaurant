@@ -20,9 +20,13 @@ get '/foods/new' do
 end	
 
 post '/foods' do
-	FoodItem.create(params['food_item'])
-
-	redirect '/foods'
+	food = FoodItem.create(params['food_item'])
+	if food.valid?
+		redirect '/foods'
+	else
+		@errors = food.errors.full_messages
+		erb :'/food_item/new'
+	end
 end
 
 get '/foods/:id' do
