@@ -1,0 +1,25 @@
+<h1>Outstanding Orders</h1>
+<% @table_array.each do |table| %>
+	<h1><a href="/tables/<%= table.id %>/receipt">Table  <%= table.number %></a></h1> 
+		<form action="/tables/<%= table.id %>/checkout" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<input type="submit" value="Pay">
+		</form>
+	<ul>
+		<% @orders.each do |order| %>
+			<% if order.table.number == table.number %>
+				<li>
+					Table <%= order.table.number %> needs <%= order.food_item.name %> 
+					<form action="/orders/<%= order.id %>" method="post">
+						<input type="hidden" name="_method" value="patch">
+						<input type="submit" value="On the house">
+					</form>
+					<form action="/orders/<%= order.id %>" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<input type="submit" value="DELETE">
+					</form>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+<% end %>

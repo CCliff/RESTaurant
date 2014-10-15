@@ -1,0 +1,16 @@
+<h1>Enter a new table:</h1>
+
+<form action="/tables" method="post">
+	
+	<label for="table[name]">
+		Number
+		<input type="text" name="table[number]">
+	</label>
+	<label for="table[number_guests]">
+		Number of Guests
+		<input type="text" name="table[number_guests]">
+	</label>
+		<input type="hidden" name="table[paid]" value="false">
+	<input type="submit">
+
+</form>

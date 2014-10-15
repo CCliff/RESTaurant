@@ -1,0 +1,13 @@
+<h1>Tables</h1>
+<h2><a href="tables/new">Add a new table.</a></h2>
+
+<ul>
+	<% @tables.each do |table| %>
+		<li>
+			<a href="/tables/<%=table.id%>">
+				<%= table.number %>
+			</a>            
+			<a href="/tables/<%=table.id%>/edit">edit</a>
+		</li>
+	<% end %>
+</ul>

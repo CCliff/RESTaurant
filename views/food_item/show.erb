@@ -1,0 +1,19 @@
+<h1>Food Item</h1>
+
+<p><%= @food_item.name %></p>
+
+<form action="/foods/<%=@food_item.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="DELETE" >
+</form>
+
+<h2>Tables that ordered this item:</h2>
+<ul>
+	<% @tables.each do |table| %>
+		<li>
+			<a href="/tables/<%= table.id %>">
+				<%= table.number %>
+			</a>
+		</li>
+	<% end %>
+</ul>

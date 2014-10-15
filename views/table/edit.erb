@@ -1,0 +1,16 @@
+<h1>Edit a table:</h1>
+
+<form action="/tables/<%= @table.id %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+	
+	<label for="table[number]">
+		Number
+		<input type="text" name="table[number]" value="<%= @table.number %>">
+	</label>
+	<label for="table[number_guests]">
+		Number of Guests
+		<input type="text" name="table[number_guests]" value="<%= @table.number_guests %>">
+	</label>
+	<input type="submit">
+
+</form>

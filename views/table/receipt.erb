@@ -1,0 +1,18 @@
+<table>
+	<% @food_items.each do |food_item| %>
+	<tr>
+		<% @sum = @sum + food_item.price %>
+		<td><%= food_item.name %></td>
+		<td><%= food_item.price %></td>
+	</tr>
+	<% end %>
+	<tr>
+		<td>--------------------------------------</td>
+		<td>-----------</td>
+	</tr>
+	<tr>
+		<td>Total bill</td>
+		<td><%= @sum %></td>
+	</tr>
+
+</table>

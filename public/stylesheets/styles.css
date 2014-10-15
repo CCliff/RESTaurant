@@ -1,0 +1,26 @@
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+nav {
+    background: black;
+    height: 44px;
+}
+
+nav li {
+    float: left;
+    padding: 13px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
