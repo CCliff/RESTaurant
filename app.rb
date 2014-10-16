@@ -126,7 +126,8 @@ end
 
 patch '/orders/:id' do 
 	@order = Order.find(params[:id])
-	@order.update('food_item_id' => 8)
+	no_charge = Order.where(name: 'NO CHARGE')
+	@order.update('food_item_id' => no_charge.id)
 
 	redirect "/orders"
 end

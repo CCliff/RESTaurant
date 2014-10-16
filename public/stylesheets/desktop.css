@@ -107,10 +107,12 @@ input.update {
 
 .table-item {
     margin: -10px -10px 30px;
+    width: 200px;
+    height: 200px;
 }
 
 .table-item > .number {
-    padding: 60px;
+    padding: 60px 80px;
     font-size: 4em;
 }
 
