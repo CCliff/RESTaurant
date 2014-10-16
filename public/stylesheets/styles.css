@@ -1,18 +1,19 @@
 
 html {
-    background-color: rgb(89, 89, 89);
+    background-color: #31353d;
 }
 
 body {
     margin: 0px;
     font-family: sans-serif;
     font-size: 1.1em;
+    color: #1c1d21;
 }
 
 h1 {
     margin: 0px;
     text-align: center;
-    background: #343434;
+    background: #92cdcf;
 }
 
 h2 {
@@ -24,7 +25,7 @@ a {
 }
 
 nav {
-    background: black;
+    background: #1c1d21;
     height: 2.75em;
 }
 
@@ -60,7 +61,7 @@ a.button{
 div.button {
     width: calc(90% - 50px);
     padding: 25px;
-    background: #FFF;
+    background: #EEEFF7;
     margin: 20px auto;
     text-align: center;
     box-shadow: 0px 1px 30px black;
@@ -100,13 +101,13 @@ input[type="submit"] {
 
 input[type="text"] {
     font-size: 1.1em;
-    margin: 25px 0px;
+    margin: 25px 54px 25px 0px;
     width: 90%;
 }
 
 input.pay {
     width: 90%;
-    background: #ccc;
+    background: #EEEFF7;
     border: none;
     box-shadow: 0px 0px 8px black;
     height: 50px;
@@ -125,10 +126,9 @@ input.update {
 .table-item {
     width: 50px;
     height: 50px;
-    background: #666;
+    background: #ccc;
     box-shadow: 0px 0px 8px black;
     border-radius: 50%;
-    color: white;
     margin: 17px;
     float: left;
 }
@@ -164,6 +164,7 @@ input.update {
 
 .food-wrapper {
     border: 1px solid black;
+    background: #445878;
 }
 
 
