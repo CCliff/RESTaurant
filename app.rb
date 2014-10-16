@@ -102,7 +102,7 @@ end
 get '/orders' do 
 	@unpaid_orders = Table.paid_false.includes(:orders).flat_map { |table| table.orders } 
 
-	@table_array = @unpaid_orders.map { |order| order.table }
+	@table_array = @unpaid_orders.map { |order| order.table }.uniq
 
 	erb :'/order/orders'
 end
@@ -110,7 +110,7 @@ end
 get '/orders/history' do 
 	@paid_orders = Table.paid_true.includes(:orders).flat_map { |table| table.orders } 
 
-	@table_array = @paid_orders.map { |order| order.table }
+	@table_array = @paid_orders.map { |order| order.table }.uniq
 
 	erb :'/order/order_history'
 end

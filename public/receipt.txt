@@ -1,7 +1,3 @@
-Spaghetti   $8
-Chili   $7
-Sausage & Peppers   $10
-Hamburger   $8
-NO CHARGE   $0
+Chicken Parm    $12
 ----------------------------- 
-SubTotal:          $33
+SubTotal:          $12

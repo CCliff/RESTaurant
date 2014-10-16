@@ -1,19 +1,6 @@
-h1 {
-    margin: 0px;
-    text-align: center;
-    background: #343434;
-}
 
 html {
     background-color: rgb(89, 89, 89);
-}
-
-a {
-    color: #666;
-}
-
-h2 {
-    margin: 0;
 }
 
 body {
@@ -22,15 +9,29 @@ body {
     font-size: 4em;
 }
 
-ul {
-    padding: 0px;
+h1 {
     margin: 0px;
-    list-style: none;
+    text-align: center;
+    background: #343434;
+}
+
+h2 {
+    margin: 0;
+}
+
+a {
+    color: #666;
 }
 
 nav {
     background: black;
     height: 1.75em;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
 }
 
 nav li {
@@ -58,7 +59,7 @@ a.button{
 
 div.button {
     width: calc(90% - 90px);
-    padding: 45px;
+    padding: 45px 0;
     background: #FFF;
     margin: 45px auto;
     text-align: center;
@@ -87,13 +88,38 @@ div.button {
     position: relative;
 }
 
+form {
+    text-align: center;
+    position: relative;
+}
+
 input[type="submit"] {
     font-size: 1.5em;
     margin: 50px;
 }
 
-form {
-    text-align: center;
+input[type="text"] {
+    font-size: 1.1em;
+    margin: 25px;
+    width: 90%;
+}
+
+input.pay {
+    width: 90%;
+    background: #ccc;
+    border: none;
+    box-shadow: 0px 0px 8px black;
+    height: 200px;
+}
+
+input.delete {
+    right: 4%;
+    color: rgb(192, 56, 56);
+}
+
+input.update {
+    left: 4%;
+    color: rgb(136, 136, 215);
 }
 
 .table-item {
@@ -118,24 +144,10 @@ form {
     margin: 3%;
 }
 
-input[type="text"] {
-    font-size: 1.1em;
-    margin: 25px;
-    width: 90%;
-}
-
 .background {
     background: #ccc;
     width: 90%;
     margin: 50px auto;
-}
-
-input.pay {
-    width: 90%;
-    background: #ccc;
-    border: none;
-    box-shadow: 0px 0px 8px black;
-    height: 200px;
 }
 
 .order-options {
@@ -143,25 +155,27 @@ input.pay {
 }
 
 .order-options input[type="submit"] {
-font-size: .75em;
-margin: 28px 0px;
-width: 50%;
-height: 100px;
-position: absolute;
-background: none;
-border: none;
+    font-size: .75em;
+    margin: 28px 0px;
+    width: 50%;
+    height: 100px;
+    position: absolute;
+    background: none;
+    border: none;
 }
 
-input.delete {
-    right: 4%;
-    color: rgb(192, 56, 56);
-}
-
-input.update {
-    left: 4%;
-    color: rgb(136, 136, 215);
-}
 
 .food-wrapper {
-border: 1px solid black;
+    border: 1px solid black;
+}
+
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
 }

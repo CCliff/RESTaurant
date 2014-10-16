@@ -2,30 +2,32 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Restaurant</title>
 	<link rel="stylesheet" href="/stylesheets/styles.css">
+	<link rel="stylesheet"  media="(min-width: 700px)" href="/stylesheets/desktop.css">
 </head>
 <body>
 	<nav>
-		<div class="container">
-			<div class="center-nav">
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/foods">Menu</a>
-					</li>
-					<li>
-						<a href="/tables">Tables</a>
-					</li>
-					<li>
-						<a href="/orders">Orders</a>
-					</li>
-				</ul>
-			</div>
+		<div class="center-nav">
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/foods">Menu</a>
+				</li>
+				<li>
+					<a href="/tables">Tables</a>
+				</li>
+				<li>
+					<a href="/orders">Orders</a>
+				</li>
+			</ul>
 		</div>
 	</nav>
-	<%= yield %>
+	<div class="container">
+		<%= yield %>
+	</div>
 </body>
 </html>

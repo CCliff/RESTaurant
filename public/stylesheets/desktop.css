@@ -1,0 +1,166 @@
+body {
+    font-size: 1em;
+}
+
+nav {
+    height: 2.5em;
+}
+
+nav li {
+    float: left;
+    padding: 10px;
+}
+
+h1 {
+    text-align: left;
+}
+
+h2 {
+    margin: 0;
+}
+
+a {
+    color: #666;
+}
+
+.container{
+    margin: auto;
+    max-width: 960px;
+    width: 100%;
+}
+
+.center{
+    text-align: center;
+}
+
+a.button{
+    text-decoration: none;
+    font-weight: 700;
+}
+
+div.button {
+    width: calc(25% - 90px);
+    margin: 10px;
+    display: inline-block;
+    float: left;
+}
+div.full{
+    width: 100%;
+    margin: 0px;
+}
+
+.item {
+    padding: 33px;
+}
+
+.edit {
+    padding: 33px;
+}
+
+.menu-item {
+    width: calc(75% - 45px);
+    float: right;
+    margin: 10px;
+    height: 100px;
+    font-size: 2em;
+}
+
+form {
+    text-align: right;
+}
+
+label{
+    display: block;
+}
+
+input[type="text"] {
+    width: 75%;
+}
+
+form.pay{
+    float: left;
+    width: 25%;
+}
+
+input.pay {
+    width: 100%;
+    box-shadow: 0px 0px 8px black;
+    height: 200px;
+    margin: 10px;
+}
+
+input.delete {
+    right: 15%;
+    top: 20px;
+}
+
+input.update {
+    left: 15%;
+    top: 20px;
+}
+
+.display{
+    width: calc(75% - 45px);
+    float: right;
+}
+
+.table-item {
+    margin: -10px -10px 30px;
+}
+
+.table-item > .number {
+    padding: 60px;
+    font-size: 4em;
+}
+
+.table-wrapper {
+    display: inline-block;
+    margin: 3%;
+}
+
+.background {
+    background: #ccc;
+    width: 90%;
+    margin: 50px auto;
+}
+
+.guests{
+    float: left;
+    margin: 25px;
+}
+
+.num_guests{
+    font-size: 6em;
+}
+
+.menu {
+    padding: 25px 0px 0px 25px;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.menu input[type="submit"]{
+    margin: 10px 0px 10px 10px;
+}
+
+.delete-table input[type="submit"]{
+    margin: 10px;
+    background: red;
+}
+
+.order-options {
+    height: 75px;
+    font-size: .5em;
+}
+
+.order-options input[type="submit"] {
+    font-size: 1em;
+    margin: 0px;
+    height: auto;
+}
+
+
+.food-wrapper {
+    border: 1px solid black;
+    font-size: 2em;
+}

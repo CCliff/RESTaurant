@@ -1,32 +1,36 @@
 <h1>Outstanding Orders</h1>
 <% unless @table_array.nil? %>
-<a class ="button" href="orders/history"><div class="button">See Order History</div></a></h2>
+<a class ="button" href="orders/history"><div class="button full">See Order History</div></a></h2>
 <% @table_array.each do |table| %>
+	<div class="cf">
 		<h1><a href="/tables/<%= table.id %>/receipt">Table  <%= table.number %></a></h1> 
-			<form action="/tables/<%= table.id %>/checkout" method="post">
+			<form class ="pay" action="/tables/<%= table.id %>/checkout" method="post">
 				<input type="hidden" name="_method" value="patch">
 				<input class ="pay" type="submit" value="Pay">
 			</form>
-		<ul>
-			<% @unpaid_orders.each do |order| %>
-				<% if order.table.id == table.id %>
-				<div class="food-wrapper">
-					<li>
-						<%= order.food_item.name %> 
-						<div class="order-options">
-							<form action="/orders/<%= order.id %>" method="post">
-								<input type="hidden" name="_method" value="patch">
-								<input class="update" type="submit" value="No Charge">
-							</form>
-							<form action="/orders/<%= order.id %>" method="post">
-								<input type="hidden" name="_method" value="delete">
-								<input class="delete" type="submit" value="DELETE">
-							</form>
+		<div class="display">
+			<ul>
+				<% @unpaid_orders.each do |order| %>
+					<% if order.table.id == table.id %>
+					<div class="food-wrapper">
+						<li>
+							<%= order.food_item.name %> 
+								<div class="order-options">
+									<form action="/orders/<%= order.id %>" method="post">
+										<input type="hidden" name="_method" value="patch">
+										<input class="update" type="submit" value="No Charge">
+									</form>
+									<form action="/orders/<%= order.id %>" method="post">
+										<input type="hidden" name="_method" value="delete">
+										<input class="delete" type="submit" value="DELETE">
+									</form>
+								</div>
+							</li>
 						</div>
-					</li>
-					</div>
+					<% end %>
 				<% end %>
-			<% end %>
-		</ul>
-	<% end %>
+			</ul>
+		</div>
+	</div>
+<% end %>
 <% end %>

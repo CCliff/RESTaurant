@@ -1,17 +1,21 @@
-<h1>Table</h1>
+<h1>Table <%= @table.number %></h1>
 
-<p>Table #<%= @table.number %></p>
-<p><%= @table.number_guests %> Guests</p>
+<div class="guests">
+	<h2><span class="num_guests"><%= @table.number_guests 	%></span> Guests</h2>
 
-<form action="/tables/<%=@table.id %>" method="post">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="DELETE" >
-</form>
 
-<form action="/orders" method="post">
-	<% @food_items.each do |food| %>
-		<input type="hidden" name="table[number]" value="<%= @table.id %>">
-		<input type="checkbox" name="food_item[]" value="<%= food.id %>"> <%= food.name %> <br>
-	<% end %>
-	<input type="submit">
-</form>
+	<form class="delete-table" action="/tables/<%=@table.id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="DELETE" >
+	</form>
+</div>
+
+<div class="display">
+	<form class ="menu background" action="/orders" method="post">
+		<% @food_items.each do |food| %>
+			<input type="hidden" name="table[number]" value="<%= @table.id %>">
+			<input type="checkbox" name="food_item[]" value="<%= food.id %>"> <%= food.name %> <br>
+		<% end %>
+		<input type="submit">
+	</form>
+</div>
