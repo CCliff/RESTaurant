@@ -76,6 +76,7 @@ form.pay.button {
 
 label{
     display: block;
+    margin: 25px 25px -25px -72px;
 }
 
 input[type="text"] {
