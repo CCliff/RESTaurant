@@ -1,5 +1,4 @@
 Chicken Parm    $12
-Chili   $8
 Cheeseburger   $9
 ----------------------------- 
-SubTotal:          $29
+SubTotal:          $21

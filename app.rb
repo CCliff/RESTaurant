@@ -161,7 +161,7 @@ patch '/tables/:id/checkout' do
 
 	@table.update('paid' => true)
 
-	redirect "/orders"
+	redirect "/tables/#{@table.id}/receipt"
 end
 
 delete '/orders/:id' do
