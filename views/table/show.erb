@@ -25,7 +25,7 @@
 		<% @food_items.each do |food| %>
 			<% unless food.name == 'NO CHARGE' %>
 				<input type="hidden" name="table[number]" value="<%= @table.id %>">
-				<input type="checkbox" name="food_item[]" value="<%= food.id %>"> <%= food.name %> <br>
+				<label class="menu-item"><input type="checkbox" name="food_item[]" value="<%= food.id %>"> <%= food.name %> </label><br>
 			<% end %>
 		<%end%>
 		<input type="submit">

@@ -57,10 +57,17 @@ div.full{
 }
 
 .menu-item {
-    width: 100%;
     float: right;
     height: 100px;
     font-size: 2em;
+}
+
+label.menu-item{
+    width: auto;
+    height: auto;
+    font-size: 1em;
+    margin: 0;
+    float: none;
 }
 
 form {
