@@ -23,9 +23,11 @@
 <div class="display">
 	<form class ="menu background" action="/orders" method="post">
 		<% @food_items.each do |food| %>
-			<input type="hidden" name="table[number]" value="<%= @table.id %>">
-			<input type="checkbox" name="food_item[]" value="<%= food.id %>"> <%= food.name %> <br>
-		<% end %>
+			<% unless food.name == 'NO CHARGE' %>
+				<input type="hidden" name="table[number]" value="<%= @table.id %>">
+				<input type="checkbox" name="food_item[]" value="<%= food.id %>"> <%= food.name %> <br>
+			<% end %>
+		<%end%>
 		<input type="submit">
 	</form>
 	<form class ="pay" action="/tables/<%= @table.id %>/checkout" method="post">
