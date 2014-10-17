@@ -80,6 +80,10 @@ input[type="text"] {
     width: 75%;
 }
 
+input[type="number"] {
+    width: 75%;
+}
+
 form.pay{
     /* float: left; */
     width: 94%;

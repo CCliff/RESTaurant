@@ -106,6 +106,12 @@ input[type="text"] {
     width: 90%;
 }
 
+input[type="number"] {
+    font-size: 1.1em;
+    margin: 25px 5px 25px 0px;
+    width: 90%;
+}
+
 input.pay {
     width: 90%;
     background: #EEEFF7;
