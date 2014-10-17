@@ -12,6 +12,7 @@ The Tables page shows the current tables and allows for management of new tables
 
 -Orders-
 The Orders page lists the current orders and gives a link back to past orders.
+
 ------------------------------------------------------
 
 -Menu-
@@ -30,6 +31,7 @@ When accessed directly, the ordering screen will appear allowing the user to inp
 On the Orders page the user is able to see a list of currently active orders (*not paid for yet) or see a list of all old orders.
 
 For current orders, a menu item can be deleted from the order or they can access the 'No Charge' button to comp an item. The order can also be paid for via this menu.
+
 ------------------------------------------------------
 
 And that's it for now. I'd like to work on custom checkboxes to make it more mobile-friendly as well as change the order display system to handle duplicates in a more cleanly manner.
