@@ -169,12 +169,10 @@ input.update {
     height: auto;
 }
 
-
 .food-wrapper {
     border: 1px solid black;
     font-size: 2em;
 }
-
 
 input.pay.button {
     width: 100%;

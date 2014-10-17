@@ -1,3 +1,14 @@
+<% if @errors %>
+	<div class="errors">
+		<h1>You have <%= @errors.count %> <%= @errors.count ==1 ? "error" : "errors" %>!</h1>
+	  <ul>
+	    <% @errors.each do |error|  %>
+	      <li><h2><%= error %></h2></li>
+	    <% end %>
+	  </ul>
+	</div>
+<% end %>
+
 <h1>Enter a new table:</h1>
 
 <div class="background">

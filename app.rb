@@ -67,9 +67,15 @@ get '/tables/new' do
 end
 
 post '/tables' do
-	Table.create(params['table'])
+	table = Table.create(params['table'])
 
-	redirect '/tables'
+
+	if table.valid?
+		redirect '/tables'
+	else
+		@errors = table.errors.full_messages
+		erb :'/table/new'
+	end
 end
 
 get '/tables/:id' do

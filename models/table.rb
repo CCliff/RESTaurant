@@ -1,4 +1,7 @@
 class Table < ActiveRecord::Base
+	validates :number, uniqueness: true, presence: true
+	validates :number_guests, numericality: {greater_than: 0}, presence: true
+
 	has_many(:orders)
 	has_many(:food_items, :through => :orders)
 
