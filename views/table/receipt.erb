@@ -1,4 +1,4 @@
-<table>
+<table class="receipt">
 	<% @food_items.each do |food_item| %>
 	<tr>
 		<% @sum = @sum + food_item.price %>
@@ -18,6 +18,7 @@
 		<td>Suggested Tip:</td>
 	</tr>
 </table>
+<div class="receipt">
 <p>----------------------------------------------</p>
 <p>15%: $<%= (@sum*0.15).round(2) %> | 20%: $<%= (@sum*0.2).round(2) %> | 25%: $<%= (@sum*0.25).round(2) %></p>
 <p>----------------------------------------------</p>
@@ -25,5 +26,6 @@
 <p>Tip: _______________________</p>
 <br>
 <p>Total: ______________________</p>
+</div>
 
 <a class="button" href="/receipt.txt" download><div class="button">Download</div></a>

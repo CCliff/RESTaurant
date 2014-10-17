@@ -4,10 +4,20 @@
 	<h2><span class="num_guests"><%= @table.number_guests 	%></span> Guests</h2>
 
 
-	<form class="delete-table" action="/tables/<%=@table.id %>" method="post">
+	<form class="delete" action="/tables/<%=@table.id %>" method="post">
 		<input type="hidden" name="_method" value="delete">
 		<input type="submit" value="DELETE" >
 	</form>
+	<div class="background">
+		<h2>Orders:</h2>
+		<ul>
+		<% @table.orders.map do |order| %>
+			<li>
+				<%= order.food_item.name %>
+			</li>
+		<% end %>
+		</ul>
+	</div>
 </div>
 
 <div class="display">
@@ -18,4 +28,8 @@
 		<% end %>
 		<input type="submit">
 	</form>
+	<form class ="pay" action="/tables/<%= @table.id %>/checkout" method="post">
+				<input type="hidden" name="_method" value="patch">
+				<input class ="pay" type="submit" value="Pay">
+			</form>
 </div>

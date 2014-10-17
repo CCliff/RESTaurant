@@ -4,7 +4,7 @@
 <% @table_array.each do |table| %>
 	<div class="cf">
 		<h1><a href="/tables/<%= table.id %>/receipt">Table  <%= table.number %></a></h1> 
-			<form class ="pay" action="/tables/<%= table.id %>/checkout" method="post">
+			<form class ="pay button" action="/tables/<%= table.id %>/checkout" method="post">
 				<input type="hidden" name="_method" value="patch">
 				<input class ="pay" type="submit" value="Pay">
 			</form>

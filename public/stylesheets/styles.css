@@ -96,7 +96,8 @@ form {
 
 input[type="submit"] {
     font-size: 1.5em;
-    margin: 20px 0px;
+    margin: 0px 55px 25px;
+    cursor: pointer;
 }
 
 input[type="text"] {
@@ -111,6 +112,14 @@ input.pay {
     border: none;
     box-shadow: 0px 0px 8px black;
     height: 50px;
+}
+
+.menu input {
+    margin-left: 20px;
+}
+
+form.menu{
+    text-align: left;
 }
 
 input.delete {
@@ -142,6 +151,11 @@ input.update {
     margin: 3%;
 }
 
+.delete input[type="submit"]{
+    margin: 10px;
+    background: red;
+}
+
 .background {
     background: #ccc;
     width: 90%;
@@ -161,10 +175,19 @@ input.update {
     padding: 15px;
 }
 
+.guests ul{
+    color: #1c1d21;
+}
+
 
 .food-wrapper {
     border: 1px solid black;
     background: #445878;
+}
+
+.receipt{
+    color: white;
+    font-size: 2em;
 }
 
 

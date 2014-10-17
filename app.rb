@@ -31,7 +31,7 @@ end
 
 get '/foods/:id' do
 	@food_item = FoodItem.find(params[:id])
-	@tables = @food_item.tables
+	@tables = @food_item.tables.uniq
 
 	erb :'/food_item/show'
 end	
@@ -89,7 +89,7 @@ patch '/tables/:id' do
 	@table = Table.find(params[:id])
 	@table.update(params['table'])
 
-	redirect "/tables/#{params[:id]}"
+	redirect "/tables/#{@table.id}"
 end
 
 delete '/tables/:id' do 
@@ -116,12 +116,13 @@ get '/orders/history' do
 end
 
 post '/orders' do
-	@food_items = params['food_item']
-
-	@food_items.each do |food_id|
-		Order.create(table_id: params['table']['number'], food_item_id: food_id )
+	@food_items = params['food_item'] || []
+	if @food_items.any?
+		@food_items.each do |food_id|
+			Order.create(table_id: params['table']['number'], food_item_id: food_id )
+		end
 	end
-	redirect "/tables"
+	redirect "/tables/#{params['table']['number']}"
 end
 
 patch '/orders/:id' do 

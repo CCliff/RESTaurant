@@ -70,6 +70,10 @@ form {
     text-align: right;
 }
 
+form.pay.button {
+    width: auto;
+}
+
 label{
     display: block;
 }
@@ -80,14 +84,16 @@ input[type="text"] {
 
 form.pay{
     float: left;
-    width: 25%;
+    width: 94%;
+    padding: 0px 0px 0px 10px;
 }
 
 input.pay {
     width: 100%;
-    box-shadow: 0px 0px 8px black;
-    height: 200px;
+    /* box-shadow: 0px 0px 8px black; */
+    /* height: 200px; */
     margin: 10px;
+    padding: 50px;
 }
 
 input.delete {
@@ -124,7 +130,7 @@ input.update {
 .background {
     background: #ccc;
     width: 90%;
-    margin: 50px auto;
+    margin: 15px auto;
 }
 
 .guests{
@@ -146,7 +152,7 @@ input.update {
     margin: 10px 0px 10px 10px;
 }
 
-.delete-table input[type="submit"]{
+.delete input[type="submit"]{
     margin: 10px;
     background: red;
 }
@@ -166,4 +172,11 @@ input.update {
 .food-wrapper {
     border: 1px solid black;
     font-size: 2em;
+}
+
+
+input.pay.button {
+    width: 100%;
+    float: left;
+    padding: 80px;
 }

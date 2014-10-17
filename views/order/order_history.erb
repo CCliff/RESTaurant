@@ -2,7 +2,7 @@
 <% unless @table_array.nil? %>
 	<% @table_array.each do |table| %>
 		<h1>Table  <%= table.number %></h1> 
-		<table>
+		<table class="receipt">
 			<% sum = 0 %>
 			<% @paid_orders.each do |order| %>
 				<% if order.table.id == table.id %>
