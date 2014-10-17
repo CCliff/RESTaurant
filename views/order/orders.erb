@@ -2,12 +2,16 @@
 <% unless @table_array.nil? %>
 <a class ="button" href="orders/history"><div class="button full">See Order History</div></a></h2>
 <% @table_array.each do |table| %>
+<h1><a href="/tables/<%= table.id %>/receipt">Table  <%= table.number %></a></h1> 
+<div class="left">
+	<form class ="pay button" action="/tables/<%= table.id %>/checkout" method="post">
+		<input type="hidden" name="_method" value="patch">
+		<input class ="pay" type="submit" value="Pay">
+	</form>
+</div>
+
 	<div class="cf">
-		<h1><a href="/tables/<%= table.id %>/receipt">Table  <%= table.number %></a></h1> 
-			<form class ="pay button" action="/tables/<%= table.id %>/checkout" method="post">
-				<input type="hidden" name="_method" value="patch">
-				<input class ="pay" type="submit" value="Pay">
-			</form>
+
 		<div class="display">
 			<ul>
 				<% @unpaid_orders.each do |order| %>

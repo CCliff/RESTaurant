@@ -1,6 +1,8 @@
 <h1>Menu</h1>
+<div class="left">
 <a class="button" href="foods/new"><div class="button">Add a food item to the menu.</div></a>
-
+</div>
+	<div class="display">
 	<% @foods.each do |food| %>
 	<div class="menu-item">
 		<a href="/foods/<%=food.id%>">
@@ -15,5 +17,5 @@
 			</div>
 		</a>	
 	</div>
-
 	<% end %>
+	</div>

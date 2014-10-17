@@ -1,5 +1,7 @@
 <h1>Tables</h1>
-<a class="button" href="tables/new"><div class="button">Add a new table.</div></a>
+<div class="left">
+	<a class="button" href="tables/new"><div class="button">Add a new table.</div></a>
+</div>
 <div class="display">
 	<% @tables.each do |table| %>
 		<% if table.paid == false %>
