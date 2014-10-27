@@ -80,10 +80,14 @@ form.pay.button {
 
 label{
     display: block;
-    margin: 25px 25px -25px -72px;
+    margin: 0px 20px -20px;
 }
 
 input[type="text"] {
+    width: 75%;
+}
+
+input[type="password"] {
     width: 75%;
 }
 

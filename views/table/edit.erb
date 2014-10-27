@@ -1,18 +1,6 @@
 <h1>Edit a table:</h1>
 
 <div class="background">
-	<form action="/tables/<%= @table.id %>" method="post">
-		<input type="hidden" name="_method" value="patch">
-		
-		<label for="table[number]">
-			Number
-			<input type="number" name="table[number]" value="<%= @table.number %>">
-		</label>
-		<label for="table[number_guests]">
-			Number of Guests
-			<input type="number" name="table[number_guests]" value="<%= @table.number_guests %>">
-		</label>
-		<input type="submit">
-
-	</form>
+	<%= form_open(@table, method: 'patch') %>
+	<%= erb :'/table/_form', :locals => {table: @table, method: 'patch'} %>
 </div>

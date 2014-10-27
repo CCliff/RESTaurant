@@ -1,1 +1,18 @@
 <h1>Welcome to the Restaurant</h1>
+<% if current_user %>
+		<h2>Welcome <%=User.find(current_user).username %></h2>
+		<form action="/logout" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Logout">
+		</form>
+<% else %>
+		<div class="background">
+		<form class="menu" action="/login" method="post">
+			<label for="username">Username</label>
+			<input type="text" name="username">
+					<label for="password">Password</label>
+			<input type="password" name="password">
+			<input type="submit">
+		</form>
+	</div>
+<% end %>

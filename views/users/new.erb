@@ -1,0 +1,4 @@
+<div class="background">
+	<%= form_open(@user, method: 'post') %>
+	<%= erb :'/users/_form', :locals => {user: @user} %>
+</div>

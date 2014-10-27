@@ -12,17 +12,6 @@
 <h1>Enter a new food item:</h1>
 
 <div class="background">
-	<form action="/foods" method="post">
-		
-		<label for="food_item[name]">
-			Name
-			<input type="text" name="food_item[name]">
-		</label>
-		<label for="food_item[price]">
-			Price
-			<input type="number" name="food_item[price]">
-		</label>
-		<input type="submit">
-
-	</form>
+	<%= form_open(@food_item, method: 'post') %>
+	<%= erb :'/food_item/_form', :locals => {food_item: @food_item} %>
 </div>

@@ -2,83 +2,135 @@ require 'bundler'
 Bundler.require(:default)
 require './connection'
 
+helpers ActiveSupport::Inflector
+
 ROOT_PATH = Dir.pwd
 Dir[ROOT_PATH+"/models/*.rb"].each{ |file| require file }
+Dir[ROOT_PATH+"/helpers/*.rb"].each{ |file| require file }
 
-get '/' do 
+enable :sessions
+
+get '/console' do
+	binding.pry
+end
+
+get '/' do
+  @user = User.new
+
 	erb :index
 end
 
-get '/foods' do
+post '/users' do
+	@user = User.new(params['user'])
+	password = params['password']
+	@user.password = password
+	@user.save!
+
+	redirect '/tables'
+end
+
+get '/register' do
+	@user = User.new
+	erb :"users/new"
+end
+
+post '/login' do
+	redirect '/' unless user = User.find_by(username: params[:username])
+	if user.password == params[:password]
+		session[:current_user] = user.id
+		redirect '/tables'
+	else
+		redirect '/'
+	end
+end
+
+delete '/logout' do
+	session[:current_user] = nil
+	redirect '/'
+end
+
+get '/food_items' do
+	authenticate!
 	@foods = FoodItem.all
 
 	erb :'/food_item/foods'
 end
 
-get '/foods/new' do 
+get '/food_items/new' do
+	authenticate!
+	@food_item = FoodItem.new
 	erb :'/food_item/new'
-end	
+end
 
-post '/foods' do
-	food = FoodItem.create(params['food_item'])
-	if food.valid?
-		redirect '/foods'
+post '/food_items' do
+	authenticate!
+	@food_item = FoodItem.create(params['food_item'])
+	if @food_item.valid?
+		redirect '/food_items'
 	else
-		@errors = food.errors.full_messages
+		@errors = @food_item.errors.full_messages
 		erb :'/food_item/new'
 	end
 end
 
-get '/foods/:id' do
+get '/food_items/:id' do
+	authenticate!
 	@food_item = FoodItem.find(params[:id])
 	@tables = @food_item.tables.uniq
 
 	erb :'/food_item/show'
-end	
+end
 
-get '/foods/:id/edit' do
+get '/food_items/:id/edit' do
+	authenticate!
 	@food_item = FoodItem.find(params[:id])
 
 	erb :'/food_item/edit'
-end	
+end
 
-patch '/foods/:id' do
+patch '/food_items/:id' do
+	authenticate!
 	@food_item = FoodItem.find(params[:id])
 	@food_item.update(params['food_item'])
 
-	redirect "/foods/#{params[:id]}"
+	redirect "/food_items/#{params[:id]}"
 end
 
-delete '/foods/:id' do
+delete '/food_items/:id' do
+	authenticate!
 	@food_item = FoodItem.find(params[:id])
 	@food_item.destroy
 
-	redirect '/foods'
+	redirect '/food_items'
 end
 
 get '/tables' do
+	authenticate!
 	@tables = Table.all
 
 	erb :'/table/tables'
 end
 
-get '/tables/new' do 
+get '/tables/new' do
+	authenticate!
+	@table = Table.new
 	erb :'/table/new'
 end
 
 post '/tables' do
-	table = Table.create(params['table'])
+	authenticate!
+	@table = Table.create(params['table'])
 
-
-	if table.valid?
+	if @table.valid?
 		redirect '/tables'
 	else
-		@errors = table.errors.full_messages
+		@errors = @table.errors.full_messages
 		erb :'/table/new'
 	end
 end
 
 get '/tables/:id' do
+	authenticate!
 	@table = Table.find(params[:id])
 	@food_items = FoodItem.all
 
@@ -86,35 +138,40 @@ get '/tables/:id' do
 end
 
 get '/tables/:id/edit' do
+	authenticate!
 	@table = Table.find(params[:id])
 
 	erb :'/table/edit'
 end
 
 patch '/tables/:id' do
+	authenticate!
 	@table = Table.find(params[:id])
 	@table.update(params['table'])
 
 	redirect "/tables/#{@table.id}"
 end
 
-delete '/tables/:id' do 
+delete '/tables/:id' do
+	authenticate!
 	@table = Table.find(params[:id])
 	@table.destroy
 
 	redirect "/tables"
 end
 
-get '/orders' do 
-	@unpaid_orders = Table.paid_false.includes(:orders).flat_map { |table| table.orders } 
+get '/orders' do
+	authenticate!
+	@unpaid_orders = Table.paid_false.includes(:orders).flat_map { |table| table.orders }
 
 	@table_array = @unpaid_orders.map { |order| order.table }.uniq
 
 	erb :'/order/orders'
 end
 
-get '/orders/history' do 
-	@paid_orders = Table.paid_true.includes(:orders).flat_map { |table| table.orders } 
+get '/orders/history' do
+	authenticate!
+	@paid_orders = Table.paid_true.includes(:orders).flat_map { |table| table.orders }
 
 	@table_array = @paid_orders.map { |order| order.table }.uniq
 
@@ -122,6 +179,7 @@ get '/orders/history' do
 end
 
 post '/orders' do
+	authenticate!
 	@food_items = params['food_item'] || []
 	if @food_items.any?
 		@food_items.each do |food_id|
@@ -131,7 +189,8 @@ post '/orders' do
 	redirect "/tables/#{params['table']['number']}"
 end
 
-patch '/orders/:id' do 
+patch '/orders/:id' do
+	authenticate!
 	@order = Order.find(params[:id])
 	no_charge = FoodItem.where(name: 'NO CHARGE')
 	@order.update('food_item_id' => no_charge[0].id)
@@ -140,6 +199,7 @@ patch '/orders/:id' do
 end
 
 get '/tables/:id/receipt' do
+	authenticate!
 	@sum = 0
 	subtotal = 0
 	@food_items = Table.find(params[:id]).food_items
@@ -157,6 +217,7 @@ get '/tables/:id/receipt' do
 end
 
 patch '/tables/:id/checkout' do
+	authenticate!
 	@table = Table.find(params[:id])
 
 	@table.update('paid' => true)
@@ -165,6 +226,7 @@ patch '/tables/:id/checkout' do
 end
 
 delete '/orders/:id' do
+	authenticate!
 	@order = Order.find(params[:id])
 	@order.destroy
 

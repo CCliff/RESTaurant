@@ -1,17 +1,19 @@
 <h1>Menu</h1>
 <div class="left">
-<a class="button" href="foods/new"><div class="button">Add a food item to the menu.</div></a>
+
+<%= new_food_item_button %>
+
 </div>
 	<div class="display">
 	<% @foods.each do |food| %>
 	<div class="menu-item">
-		<a href="/foods/<%=food.id%>">
+		<a href="/food_items/<%=food.id%>">
 			<div class="item">
 				<%= food.name %>
 			</div>
 		</a>    
 
-		<a href="/foods/<%=food.id%>/edit">
+		<a href="/food_items/<%=food.id%>/edit">
 			<div class="edit">
 				edit
 			</div>
