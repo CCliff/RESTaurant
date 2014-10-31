@@ -36,6 +36,7 @@ module Sinatra
 
 		def constant_defined(resource)
 			resource = singularize(resource).camelcase
+			binding.pry
 			Module.const_defined?(resource)
 		end
 

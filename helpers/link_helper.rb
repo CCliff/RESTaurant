@@ -35,7 +35,8 @@ module Sinatra
 		end
 
 		def constant_defined(resource)
-			resource = singularize(resource).capitalize
+			resource = singularize(resource).camelcase
+			binding.pry
 			Module.const_defined?(resource)
 		end
 
